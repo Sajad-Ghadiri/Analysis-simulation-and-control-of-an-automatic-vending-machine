@@ -1,0 +1,161 @@
+(*2*)
+(* Network 0 *)
+LD    %I0.0
+ANDN    %Q1.2
+RS   RS0   %Q4.3
+ST   %M10.0
+(* Network 1 *)
+LD    %I0.1
+ANDN    %Q1.2
+RS   RS1   %Q4.3
+ST   %M10.1
+(* Network 2 *)
+LD    %I0.2
+ANDN    %Q1.2
+RS   RS2   %Q4.3
+ST   %M10.2
+(* Network 3 *)
+LD    %I0.3
+ANDN    %Q1.2
+RS   RS3   %Q4.3
+ST   %M10.3
+(* Network 4 *)
+LD    %I0.4
+ANDN    %Q1.2
+RS   RS4   %Q4.3
+ST   %M10.4
+(* Network 5 *)
+LD    %I0.5
+ANDN    %Q1.2
+RS   RS5   %Q4.3
+ST   %M10.5
+(* Network 6 *)
+LD    %I0.6
+ANDN    %Q1.2
+RS   RS6   %Q4.3
+ST   %M10.6
+(* Network 7 *)
+LD    %I0.7
+ANDN    %Q1.2
+RS   RS7   %Q4.3
+ST   %M10.7
+(* Network 8 *)
+LD    %I1.0
+ANDN    %Q1.2
+RS   RS8   %Q4.3
+ST   %M11.0
+(* Network 9 *)
+LD    %I1.1
+ANDN    %Q1.2
+RS   RS9   %Q4.3
+ST   %M11.1
+(* Network 10 *)
+LD    %M10.0
+OR    %M10.1
+OR    %M10.2
+OR    %M10.3
+OR    %M10.4
+OR    %M10.5
+OR    %M10.6
+OR    %M10.7
+OR    %M11.0
+OR    %M11.1
+ST   %Q1.2
+(* Network 11 *)
+LD    %Q1.2
+AND    %I1.3
+RS   RS10   %Q4.3
+ST   %Q1.3
+(* Network 12 *)
+LD    %Q1.3
+TON   T0, 3000
+__CR_EQ_1
+MOVE    T0, %MW0
+__CR_RESTORE
+ST   %Q2.0
+(* Network 13 *)
+LD    %Q1.2
+AND    %I1.4
+RS   RS11   %Q4.3
+ST   %Q1.4
+(* Network 14 *)
+LD    %Q1.4
+TON   T1, 10000
+__CR_EQ_1
+MOVE    T1, %MW2
+__CR_RESTORE
+ST   %BR0.0
+(* Network 15 *)
+LD    T1
+NCR
+AND    %I1.5
+RS   RS12   %Q4.3
+ST   %Q2.1
+(* Network 16 *)
+LD    %Q2.0
+OR    %Q2.1
+ST   %Q2.2
+(* Network 17 *)
+LD    %Q2.2
+TON   T2, 10000
+__CR_EQ_1
+MOVE    T2, %MW4
+__CR_RESTORE
+ST   %BR0.0
+(* Network 18 *)
+LDN    T2
+AND    %Q2.2
+AND    %M10.0
+ST   %Q3.0
+(* Network 19 *)
+LDN    T2
+AND    %Q2.2
+AND    %M10.1
+ST   %Q3.1
+(* Network 20 *)
+LDN    T2
+AND    %Q2.2
+AND    %M10.2
+ST   %Q3.2
+(* Network 21 *)
+LDN    T2
+AND    %Q2.2
+AND    %M10.3
+ST   %Q3.3
+(* Network 22 *)
+LDN    T2
+AND    %Q2.2
+AND    %M10.4
+ST   %Q3.4
+(* Network 23 *)
+LDN    T2
+AND    %Q2.2
+AND    %M10.5
+ST   %Q3.5
+(* Network 24 *)
+LDN    T2
+AND    %Q2.2
+AND    %M10.6
+ST   %Q3.6
+(* Network 25 *)
+LDN    T2
+AND    %Q2.2
+AND    %M10.7
+ST   %Q3.7
+(* Network 26 *)
+LDN    T2
+AND    %Q2.2
+AND    %M11.0
+ST   %Q4.0
+(* Network 27 *)
+LDN    T2
+AND    %Q2.2
+AND    %M11.1
+ST   %Q4.1
+(* Network 28 *)
+LD    T2
+ANDN    %I1.6
+ST   %Q4.2
+(* Network 29 *)
+LD    %I1.6
+ST   %Q4.3
